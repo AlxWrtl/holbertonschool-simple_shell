@@ -36,9 +36,9 @@ void handle_input(char *input)
 {
 	char **tokens = tokenize_line(input, " \t\n");
 
-	if (tokens && tokens[0])
+	if (tokens)
 	{
-		if (strcmp(tokens[0], "exit") == 0)
+		if (tokens[0] && strcmp(tokens[0], "exit") == 0)
 		{
 			free_tokens(tokens);
 			exit(0);
