@@ -1,0 +1,27 @@
+.TH "SIMPLE_SHELL" "1" "December 2023" "Version 1.0" "User Manual"
+.SH NAME
+hsh \- simple_shell, une interface de shell basique en C
+.SH SYNOPSIS
+.B hsh
+en mode interactif, ou
+.BR "echo /bin/(command) | ./hsh"
+en mode non interactif.
+.SH DESCRIPTION
+.B hsh
+est une interface de shell permettant l'exécution de commandes et la gestion des entrées utilisateur en mode interactif et non interactif. Inspiré du shell Unix standard, il vise à explorer les concepts de programmation système.
+.SH INSTALLATION
+Cloner le dépôt et compiler avec GCC 9.4.0, flags -Wall, -Werror, -Wextra, et -pedantic.
+.SH USAGE
+Exécuter en mode interactif en tapant ./hsh ou utiliser en mode non interactif avec des commandes via echo.
+.SH FEATURES
+Exécution de commandes Unix standard, gestion des modes interactif et non interactif, et prise en charge des commandes personnalisées.
+.SH FUNCTIONS
+.B execmd, free_tokens, handle_input
+pour l'exécution des commandes et la gestion des entrées utilisateur.
+.TP
+.B interactive_mode, non_interactive_mode
+pour les modes interactif et non interactif.
+.SH EXAMPLES
+En mode interactif, entrez des commandes après l'invite $. En mode non interactif, utilisez echo pour exécuter des commandes.
+.SH AUTHORS
+Audrey Lican & Alexandre Wertel
