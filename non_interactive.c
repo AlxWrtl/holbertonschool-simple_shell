@@ -14,19 +14,10 @@
 
 void non_interactive_mode(int argc, char *argv[])
 {
-	if (argc > 2 && strcmp(argv[1], "-c") == 0)
-	{
-		char *cmd_argv[256];
-		char *token = strtok(argv[2], " ");
-		int i = 0;
-
-		while (token != NULL && i < 255)
-		{
-			cmd_argv[i++] = token;
-			token = strtok(NULL, " ");
-		}
-		cmd_argv[i] = NULL;
-
-		execmd(cmd_argv);
-	}
+    if (argc > 2 && strcmp(argv[1], "-c") == 0)
+    {
+        char **cmd_argv = tokenize_line(argv[2], " ");
+        execmd(cmd_argv);
+        free_tokens(cmd_argv);
+    }
 }
