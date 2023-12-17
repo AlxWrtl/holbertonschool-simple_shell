@@ -55,7 +55,7 @@ To run the shell:
 | **pwd**        | return working directory name.                       |
 | **echo**      | write arguments to the standard output.                           |
 | **touch**      | change file access and modification times.                     |
-| **mkdirt**        | make directories.                         |
+| **mkdir**        | make directories.                         |
 | **clear**        | clear the terminal screen.                         |
 | **rm**        |  remove directory entries.                         |
 | **cp**        |  copy files.                         |
