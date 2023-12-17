@@ -20,7 +20,7 @@ char **tokenize_line(const char *line, const char *delim)
 	int num_tokens = 0, i = 0;
 	char *token, **tokens;
 	char *line_copy = strdup(line);
-
+	
 	token = strtok(line_copy, delim);
 	while (token)
 	{
@@ -30,7 +30,13 @@ char **tokenize_line(const char *line, const char *delim)
 
 	free(line_copy);
 	line_copy = strdup(line);
+
 	tokens = malloc(sizeof(char *) * (num_tokens + 1));
+	if (!tokens)
+	{
+		free(line_copy);
+		return NULL;
+	}
 
 	token = strtok(line_copy, delim);
 	while (token)
@@ -41,5 +47,5 @@ char **tokenize_line(const char *line, const char *delim)
 	tokens[i] = NULL;
 
 	free(line_copy);
-	return (tokens);
+	return tokens;
 }
