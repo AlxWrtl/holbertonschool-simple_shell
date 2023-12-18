@@ -30,11 +30,13 @@ char **tokenize_line(const char *line, const char *delim)
 
 	free(line_copy);
 	line_copy = strdup(line);
+	free(token);
 
 	tokens = malloc(sizeof(char *) * (num_tokens + 1));
 	if (!tokens)
 	{
 		free(line_copy);
+		free(token);
 		return (NULL);
 	}
 

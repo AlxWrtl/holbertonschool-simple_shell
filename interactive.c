@@ -16,8 +16,10 @@ void free_tokens(char **tokens)
 	if (!tokens)
 		return;
 
-	while (tokens[i])
-		free(tokens[i++]);
+	for (i = 0; tokens[i] != NULL; i++)
+	{
+		free(tokens[i]);
+	}
 	free(tokens);
 }
 
@@ -70,6 +72,7 @@ void interactive_mode(void)
 		printf("%s", prompt);
 		if (getline(&input, &n, stdin) == -1)
 		{
+			free(input);
 			return;
 		}
 

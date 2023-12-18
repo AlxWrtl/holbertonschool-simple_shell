@@ -21,6 +21,9 @@ void non_interactive_mode(void)
 	while ((read = getline(&input, &n, stdin)) != -1)
 	{
 		handle_input(input);
+		free(input);
+		input = NULL;
+		n = 0;
 	}
 
 	free(input);
