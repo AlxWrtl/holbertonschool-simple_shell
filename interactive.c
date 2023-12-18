@@ -77,4 +77,5 @@ void interactive_mode(void)
 
 		handle_input(input);
 	}
+	free(input);
 }
