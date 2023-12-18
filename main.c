@@ -18,7 +18,6 @@
 
 int main(int argc, char *argv[])
 {
-	// Explicitly reference argc and argv to avoid unused parameter warnings
 	(void)argc;
 	(void)argv;
 
