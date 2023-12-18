@@ -20,7 +20,6 @@ int main(int argc, char *argv[])
 {
 	if (argc > 1)
 	{
-		// Use argv[1] to decide the mode
 		if (strcmp(argv[1], "non-interactive") == 0)
 		{
 			non_interactive_mode();
