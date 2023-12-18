@@ -72,7 +72,6 @@ void interactive_mode(void)
 		printf("%s", prompt);
 		if (getline(&input, &n, stdin) == -1)
 		{
-			free(input);
 			return;
 		}
 
