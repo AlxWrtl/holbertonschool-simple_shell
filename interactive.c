@@ -75,13 +75,13 @@ void interactive_mode(void)
 		{
 			if (input)
 				free(input);
-			return; // Exiting the loop
+			return;
 		}
 
 		if (handle_input(input) == -1)
 		{
 			free(input);
-			exit(0); // Exiting the program
+			exit(0);
 		}
 	}
 
