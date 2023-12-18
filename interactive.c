@@ -36,11 +36,10 @@ void free_tokens(char **tokens)
 
 int handle_input(char *input)
 {
-	int exec_status;
 	char **tokens = tokenize_line(input, " \t\n");
 
 	if (!tokens)
-		return (-1);
+		return;
 	{
 		if (tokens[0] && strcmp(tokens[0], "exit") == 0)
 		{
@@ -50,50 +49,41 @@ int handle_input(char *input)
 		}
 
 		execmd(tokens);
-
-		exec_status = WEXITSTATUS(tokens);
-		if (exec_status == 1)
-		{
-			free_tokens(tokens);
-		}
-		else
-		{
-			free_tokens(tokens);
-		}
+		free_tokens(tokens);
 	}
 	return (0);
 }
 
-	/**
-	 * interactive_mode - Run the interactive mode of the shell.
-	 *
-	 * This function starts an interactive shell session that continuously prompts
-	 * the user for input, tokenizes the input, and handles the execution of
-	 * commands. It terminates when the user enters the end-of-file
-	 * character (EOF).
-	 * Memory allocated for 'input' is freed at the end.
-	 */
+/**
+ * interactive_mode - Run the interactive mode of the shell.
+ *
+ * This function starts an interactive shell session that continuously prompts
+ * the user for input, tokenizes the input, and handles the execution of
+ * commands. It terminates when the user enters the end-of-file
+ * character (EOF).
+ * Memory allocated for 'input' is freed at the end.
+ */
 
-	void interactive_mode(void)
+void interactive_mode(void)
+{
+	char *prompt = "$ ";
+	char *input = NULL;
+	size_t n = 0;
+
+	while (1)
 	{
-		char *prompt = "$ ";
-		char *input = NULL;
-		size_t n = 0;
-
-		while (1)
+		printf("%s", prompt);
+		if (getline(&input, &n, stdin) == -1)
 		{
-			printf("%s", prompt);
-			if (getline(&input, &n, stdin) == -1)
-			{
-				free(input);
-				return;
-			}
-
-			if (handle_input(input) == -1)
-			{
-				free(input);
-				exit(0);
-			}
+			free(input);
+			return;
 		}
-		free(input);
+
+		if (handle_input(input) == -1)
+		{
+			free(input);
+			exit(0);
+		}
 	}
+	free(input);
+}
