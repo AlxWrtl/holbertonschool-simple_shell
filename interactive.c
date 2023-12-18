@@ -61,7 +61,7 @@ void handle_input(char *input)
 
 void interactive_mode(void)
 {
-	char *prompt = "s_shell $ ";
+	char *prompt = "$ ";
 	char *input = NULL;
 	size_t n = 0;
 
@@ -70,8 +70,7 @@ void interactive_mode(void)
 		printf("%s", prompt);
 		if (getline(&input, &n, stdin) == -1)
 		{
-			printf("This Is The Way\n");
-			break;
+			return;
 		}
 
 		handle_input(input);
