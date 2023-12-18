@@ -38,13 +38,14 @@ int handle_input(char *input)
 {
 	char **tokens = tokenize_line(input, " \t\n");
 
-	if (tokens)
+	if (!tokens)
+		return (0);
 	{
 		if (tokens[0] && strcmp(tokens[0], "exit") == 0)
 		{
 			free_tokens(tokens);
 			free(input);
-			exit(0);
+			exit(-1);
 		}
 
 		execmd(tokens);
@@ -84,4 +85,5 @@ void interactive_mode(void)
 			exit(0);
 		}
 	}
+	free(input);
 }
