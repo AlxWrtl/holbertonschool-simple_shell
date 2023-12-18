@@ -20,7 +20,7 @@ char **tokenize_line(const char *line, const char *delim)
 	int num_tokens = 0, i = 0;
 	char *token, **tokens;
 	char *line_copy = strdup(line);
-	
+
 	token = strtok(line_copy, delim);
 	while (token)
 	{
