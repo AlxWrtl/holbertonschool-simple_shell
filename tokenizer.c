@@ -23,7 +23,7 @@ char **tokenize_line(const char *line, const char *delim)
 
 	if (!line_copy)
 	{
-		return NULL;
+		return (NULL);
 	}
 
 	token = strtok(line_copy, delim);
