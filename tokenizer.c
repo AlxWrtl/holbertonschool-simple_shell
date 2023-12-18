@@ -19,13 +19,13 @@ char **tokenize_line(const char *line, const char *delim)
 {
 	int num_tokens = 0, i;
 	char *token, **tokens;
-	char *line_copy = strdup(line);
+	char *line_copy, *line_copy_original;
 
+	line_copy = line_copy_original = strdup(line);
 	if (!line_copy)
 	{
 		return (NULL);
 	}
-
 
 	token = strtok(line_copy, delim);
 	while (token)
@@ -34,16 +34,14 @@ char **tokenize_line(const char *line, const char *delim)
 		token = strtok(NULL, delim);
 	}
 
-
 	tokens = malloc(sizeof(char *) * (num_tokens + 1));
 	if (!tokens)
 	{
-		free(line_copy);
+		free(line_copy_original);
 		return (NULL);
 	}
 
-
-	strcpy(line_copy, line);
+	line_copy = line_copy_original;
 	token = strtok(line_copy, delim);
 	for (i = 0; token; i++)
 	{
@@ -52,6 +50,6 @@ char **tokenize_line(const char *line, const char *delim)
 	}
 	tokens[num_tokens] = NULL;
 
-	free(line_copy);
+	free(line_copy_original);
 	return (tokens);
 }
