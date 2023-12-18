@@ -43,6 +43,7 @@ void handle_input(char *input)
 		if (tokens[0] && strcmp(tokens[0], "exit") == 0)
 		{
 			free_tokens(tokens);
+			free(input);
 			exit(0);
 		}
 
