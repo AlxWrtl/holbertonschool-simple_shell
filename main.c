@@ -18,16 +18,17 @@
 
 int main(int argc, char *argv[])
 {
-	if (argc > 1)
+	// Explicitly reference argc and argv to avoid unused parameter warnings
+	(void)argc;
+	(void)argv;
+
+	if (isatty(STDIN_FILENO))
 	{
-		if (strcmp(argv[1], "non-interactive") == 0)
-		{
-			non_interactive_mode();
-		}
+		interactive_mode();
 	}
 	else
 	{
-		interactive_mode();
+		non_interactive_mode();
 	}
 
 	return (0);
