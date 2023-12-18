@@ -12,12 +12,26 @@
  * to execute the specified command.
  */
 
-void non_interactive_mode(int argc, char *argv[])
+void non_interactive_mode(void)
 {
-    if (argc > 2 && strcmp(argv[1], "-c") == 0)
-    {
-        char **cmd_argv = tokenize_line(argv[2], " ");
-        execmd(cmd_argv);
-        free_tokens(cmd_argv);
-    }
+	char *line = NULL, **cmd_argv;
+	size_t len = 0;
+	ssize_t read;
+
+	while ((read = getline(&line, &len, stdin)) != -1)
+	{
+		if (line[read - 1] == '\n')
+		{
+			line[read - 1] = '\0';
+		}
+
+		cmd_argv = tokenize_line(line, " ");
+		if (cmd_argv)
+		{
+			execmd(cmd_argv);
+			free_tokens(cmd_argv);
+		}
+	}
+
+	free(line);
 }
