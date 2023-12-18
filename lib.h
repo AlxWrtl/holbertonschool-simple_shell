@@ -13,6 +13,6 @@ void execmd(char **argv);
 void interactive_mode(void);
 void free_tokens(char **tokens);
 void handle_input(char *input);
-void non_interactive_mode(int argc, char *argv[]);
+void non_interactive_mode(void);
 
 #endif
