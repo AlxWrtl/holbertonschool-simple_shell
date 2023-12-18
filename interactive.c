@@ -72,8 +72,9 @@ void interactive_mode(void)
 		printf("%s", prompt);
 		if (getline(&input, &n, stdin) == -1)
 		{
-			free(input);
-			return;
+			if (input)
+				free(input);
+			break;
 		}
 
 		if (handle_input(input) == -1)
@@ -81,6 +82,9 @@ void interactive_mode(void)
 			free(input);
 			exit(0);
 		}
+		free(input);
+		input = NULL;
+		n = 0;
 	}
 	free(input);
 	input = NULL;

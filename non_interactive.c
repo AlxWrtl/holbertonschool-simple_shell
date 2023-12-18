@@ -26,5 +26,8 @@ void non_interactive_mode(void)
 		n = 0;
 	}
 
-	free(input);
+	if (input)
+	{
+		free(input);
+	}
 }
