@@ -79,7 +79,7 @@ void interactive_mode(void)
 		}
 
 		if (handle_input(input) == -1)
-		{ 
+		{
 			free(input);
 			exit(0);
 		}
