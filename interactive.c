@@ -16,10 +16,9 @@ void free_tokens(char **tokens)
 	if (!tokens)
 		return;
 
-	while (tokens[i])
+	for (i = 0; tokens[i] != NULL; i++)
 	{
 		free(tokens[i]);
-		i++;
 	}
 	free(tokens);
 }
@@ -64,7 +63,7 @@ int handle_input(char *input)
 
 void interactive_mode(void)
 {
-	char *prompt = "#cisfun$ ";
+	char *prompt = "Simple_shell ";
 	char *input = NULL;
 	size_t n = 0;
 
@@ -75,7 +74,7 @@ void interactive_mode(void)
 		{
 			if (input)
 				free(input);
-			return;
+			break;
 		}
 
 		if (handle_input(input) == -1)
@@ -83,9 +82,10 @@ void interactive_mode(void)
 			free(input);
 			exit(0);
 		}
-	}
-
-	if (input)
 		free(input);
+        input = NULL;
+        n = 0;
+	}
+	free(input);
+	input = NULL;
 }
-
