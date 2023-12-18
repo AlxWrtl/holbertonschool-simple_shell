@@ -14,24 +14,14 @@
 
 void non_interactive_mode(void)
 {
-	char *line = NULL, **cmd_argv;
-	size_t len = 0;
+	char *input = NULL;
+	size_t n = 0;
 	ssize_t read;
 
-	while ((read = getline(&line, &len, stdin)) != -1)
+	while ((read = getline(&input, &n, stdin)) != -1)
 	{
-		if (line[read - 1] == '\n')
-		{
-			line[read - 1] = '\0';
-		}
-
-		cmd_argv = tokenize_line(line, " ");
-		if (cmd_argv)
-		{
-			execmd(cmd_argv);
-			free_tokens(cmd_argv);
-		}
+		handle_input(input);
 	}
 
-	free(line);
+	free(input);
 }
