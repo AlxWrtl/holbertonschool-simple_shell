@@ -34,7 +34,7 @@ void free_tokens(char **tokens)
  * It also frees the memory allocated for tokens.
  */
 
-void handle_input(char *input)
+int handle_input(char *input)
 {
 	char **tokens = tokenize_line(input, " \t\n");
 
@@ -50,6 +50,7 @@ void handle_input(char *input)
 		execmd(tokens);
 		free_tokens(tokens);
 	}
+	return (0);
 }
 
 /**
@@ -77,7 +78,10 @@ void interactive_mode(void)
 			return;
 		}
 
-		handle_input(input);
+		if (handle_input(input) == -1)
+		{ 
+			free(input);
+			exit(0);
+		}
 	}
-	free(input);
 }
