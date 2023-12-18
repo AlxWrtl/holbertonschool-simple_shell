@@ -38,16 +38,13 @@ int handle_input(char *input)
 {
 	char **tokens = tokenize_line(input, " \t\n");
 
-	if (!tokens)
-		return;
+	if (tokens)
 	{
 		if (tokens[0] && strcmp(tokens[0], "exit") == 0)
 		{
 			free_tokens(tokens);
-			free(input);
-			exit(-1);
+			return (-1);
 		}
-
 		execmd(tokens);
 		free_tokens(tokens);
 	}
