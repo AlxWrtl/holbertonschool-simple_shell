@@ -36,7 +36,6 @@ char **tokenize_line(const char *line, const char *delim)
 	if (!tokens)
 	{
 		free(line_copy);
-		free(token);
 		return (NULL);
 	}
 
