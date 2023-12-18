@@ -21,6 +21,11 @@ char **tokenize_line(const char *line, const char *delim)
 	char *token, **tokens;
 	char *line_copy = strdup(line);
 
+	if (!line_copy)
+	{
+		return NULL;
+	}
+
 	token = strtok(line_copy, delim);
 	while (token)
 	{
@@ -39,6 +44,7 @@ char **tokenize_line(const char *line, const char *delim)
 		return (NULL);
 	}
 
+	strcpy(line_copy, line);
 	token = strtok(line_copy, delim);
 	while (token)
 	{
