@@ -35,7 +35,7 @@ char **tokenize_line(const char *line, const char *delim)
 	if (!tokens)
 	{
 		free(line_copy);
-		return NULL;
+		return (NULL);
 	}
 
 	token = strtok(line_copy, delim);
@@ -47,5 +47,5 @@ char **tokenize_line(const char *line, const char *delim)
 	tokens[i] = NULL;
 
 	free(line_copy);
-	return tokens;
+	return (tokens);
 }
