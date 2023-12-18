@@ -63,7 +63,7 @@ int handle_input(char *input)
 
 void interactive_mode(void)
 {
-	char *prompt = "$ ";
+	char *prompt = "Simple_shell ";
 	char *input = NULL;
 	size_t n = 0;
 
