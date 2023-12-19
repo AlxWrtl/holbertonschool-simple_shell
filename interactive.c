@@ -43,7 +43,7 @@ int handle_input(char *input)
 		if (tokens[0] && strcmp(tokens[0], "exit") == 0)
 		{
 			free_tokens(tokens);
-			exit (EXIT_SUCCESS);
+			return (0);
 		}
 		execmd(tokens);
 		free_tokens(tokens);
