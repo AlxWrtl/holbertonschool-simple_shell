@@ -36,29 +36,24 @@ void free_tokens(char **tokens)
 
 int handle_input(char *input)
 {
-	char **tokens;
-	int status = 0;
-	tokens = tokenize_line(input, " \t\n");
-	
-	if (!tokens)
-	{
-		return (0);
-	}
+	char **tokens = tokenize_line(input, " \t\n");
+	int return_status = 0;
 
-	if (tokens[0])
+	if (tokens)
 	{
-		if (strcmp(tokens[0], "exit") == 0)
+		if (tokens[0] && strcmp(tokens[0], "exit") == 0)
 		{
-			status = -1;
+			return_status = -1;
 		}
 		else
 		{
 			execmd(tokens);
 		}
+
+		free_tokens(tokens);
 	}
 
-	free_tokens(tokens);
-	return (status);
+	return return_status;
 }
 
 /**
