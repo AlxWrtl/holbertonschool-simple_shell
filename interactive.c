@@ -74,7 +74,7 @@ void interactive_mode(void)
 		{
 			if (input)
 				free(input);
-			break;
+			return;
 		}
 
 		if (handle_input(input) == -1)
@@ -83,8 +83,8 @@ void interactive_mode(void)
 			exit(0);
 		}
 		free(input);
-        input = NULL;
-        n = 0;
+		input = NULL;
+		n = 0;
 	}
 	free(input);
 	input = NULL;
