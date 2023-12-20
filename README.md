@@ -67,6 +67,9 @@ In this mode, the shell runs continuously, processing commands until 'exit' is e
 ### Non-Interactive Mode
 To run a single command, use: `./simple_shell -c "command"`
 
+## Flowchart
+<img width="3260" alt="FlowChart Simple_Shell" src="https://github.com/SuperPims/holbertonschool-simple_shell/assets/71230879/aba6ed17-c15e-46a5-8aed-96bd7db7bc9d">
+
 ## Contributing
 
 If you find any issues or have suggestions for improvements, please feel free to open an issue or create a pull request. Contributions are welcome!
