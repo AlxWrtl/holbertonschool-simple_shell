@@ -19,15 +19,15 @@ void execmd(char **argv)
 	pid = fork();
 	if (pid == -1)
 	{
-		perror(SHELL_NAME);
+		perror("Error: fork");
 		return;
 	}
 	else if (pid == 0)
 	{
 		if (execvp(argv[0], argv) == -1)
 		{
-			perror(SHELL_NAME);
-			exit(EXIT_FAILURE);
+			perror("Error: execvp");
+			exit(1);
 		}
 	}
 	else
