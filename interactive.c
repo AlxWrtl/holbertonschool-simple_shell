@@ -37,23 +37,18 @@ void free_tokens(char **tokens)
 int handle_input(char *input)
 {
 	char **tokens = tokenize_line(input, " \t\n");
-	int return_status = 0;
 
 	if (tokens)
 	{
 		if (tokens[0] && strcmp(tokens[0], "exit") == 0)
 		{
-			(return_status = -1);
+			free_tokens(tokens);
+			return (-1);
 		}
-		else
-		{
-			execmd(tokens);
-		}
-
+		execmd(tokens);
 		free_tokens(tokens);
 	}
-
-	return (return_status);
+	return (0);
 }
 
 /**
@@ -68,7 +63,7 @@ int handle_input(char *input)
 
 void interactive_mode(void)
 {
-	char *prompt = "Simple_shell ";
+	char *prompt = "$ ";
 	char *input = NULL;
 	size_t n = 0;
 
@@ -77,8 +72,7 @@ void interactive_mode(void)
 		printf("%s", prompt);
 		if (getline(&input, &n, stdin) == -1)
 		{
-			if (input)
-				free(input);
+			free(input);
 			return;
 		}
 
@@ -87,7 +81,6 @@ void interactive_mode(void)
 			free(input);
 			exit(0);
 		}
-		free(input);
-		input = NULL;
 	}
+	free(input);
 }
