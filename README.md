@@ -69,7 +69,7 @@ To run a single command, use: `./simple_shell -c "command"`
 
 ## Flowchart
 
-<img width="792" alt="FlowChart Simple_Shell" src="https://github.com/SuperPims/holbertonschool-simple_shell/assets/71230879/87f80953-2f1f-46d4-87fb-ad70c13051f2">
+<img width="787" alt="FlowChart Simple_Shell" src="https://github.com/SuperPims/holbertonschool-simple_shell/assets/71230879/5ed7e721-a2cd-4ab8-8038-317b8f0c3175">
 
 ## Contributing
 
