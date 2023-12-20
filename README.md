@@ -68,7 +68,8 @@ In this mode, the shell runs continuously, processing commands until 'exit' is e
 To run a single command, use: `./simple_shell -c "command"`
 
 ## Flowchart
-<img width="3260" alt="FlowChart Simple_Shell" src="https://github.com/SuperPims/holbertonschool-simple_shell/assets/71230879/aba6ed17-c15e-46a5-8aed-96bd7db7bc9d">
+
+<img width="792" alt="FlowChart Simple_Shell" src="https://github.com/SuperPims/holbertonschool-simple_shell/assets/71230879/87f80953-2f1f-46d4-87fb-ad70c13051f2">
 
 ## Contributing
 
