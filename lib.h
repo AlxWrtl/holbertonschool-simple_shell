@@ -7,7 +7,6 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/wait.h>
-#define SHELL_NAME "./shell"
 
 char **tokenize_line(const char *line, const char *delim);
 void execmd(char **argv);
