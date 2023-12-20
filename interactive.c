@@ -43,7 +43,7 @@ int handle_input(char *input)
 	{
 		if (tokens[0] && strcmp(tokens[0], "exit") == 0)
 		{
-			return_status = -1;
+			(return_status = -1);
 		}
 		else
 		{
@@ -53,7 +53,7 @@ int handle_input(char *input)
 		free_tokens(tokens);
 	}
 
-	return return_status;
+	return (return_status);
 }
 
 /**
