@@ -89,8 +89,5 @@ void interactive_mode(void)
 		}
 		free(input);
 		input = NULL;
-		n = 0;
 	}
-	free(input);
-	input = NULL;
 }
