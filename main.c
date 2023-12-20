@@ -16,16 +16,9 @@
  * Return: 0 on successful execution.
  */
 
-int main(int argc, char *argv[])
+int main(void)
 {
-	(void)argc;
-	(void)argv;
-
-	if (isatty(STDIN_FILENO))
-	{
 		interactive_mode();
-	}
-	else
 	{
 		non_interactive_mode();
 	}
