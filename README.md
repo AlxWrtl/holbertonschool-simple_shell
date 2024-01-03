@@ -56,6 +56,7 @@ To run the shell:
 | **echo**      | write arguments to the standard output.                           |
 | **touch**      | change file access and modification times.                     |
 | **mkdir**        | make directories.                         |
+| **cat**        | concatenate and print files.                         |
 | **clear**        | clear the terminal screen.                         |
 | **rm**        |  remove directory entries.                         |
 | **cp**        |  copy files.                         |
